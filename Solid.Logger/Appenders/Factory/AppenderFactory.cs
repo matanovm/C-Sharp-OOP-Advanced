@@ -12,9 +12,14 @@ namespace Solid.Logger.Appenders.Factory
 	{
 		public IAppender CreateAppender(string type, ILayout layout)
 		{
-			if (type == null || layout == null)
+			if (type == null)
 			{
-				throw new ArgumentException("Arguments can't be null!");
+				throw new ArgumentNullException(nameof(type));
+			}
+
+			if (layout == null)
+			{
+				throw new ArgumentNullException(nameof(layout));
 			}
 
 			string typeAsLowerCase = type.ToLower();
@@ -28,7 +33,6 @@ namespace Solid.Logger.Appenders.Factory
 				default:
 					throw new ArgumentException("Invalid argument type.");
 			}
-
 		}
 	}
 }

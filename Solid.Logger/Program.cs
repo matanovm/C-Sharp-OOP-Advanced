@@ -10,7 +10,6 @@ namespace Logger
 			ICommandInterpreter commandInterpreter = new CommandInterpreter();
 			IEngine engine = new Engine(commandInterpreter);
 			engine.Run();
-
 		}
 	}
 }
