@@ -1,6 +1,6 @@
 ﻿namespace Generic_Box_Of_Strings
 {
-	class Box<T>
+	public class Box<T>
 	{
 		private T value;
 

@@ -2,17 +2,29 @@
 
 namespace Generic_Box_Of_Strings
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
-			int n = int.Parse(Console.ReadLine());
-
-			for (int i = 0; i < n; i++)
+			int n;
+			while (true)
 			{
-				Box<string> box = new Box<string>(Console.ReadLine());
+				string s = Console.ReadLine();
+				bool success = int.TryParse(s, out n);
+				if (success)
+				{
+					for (int i = 0; i < n; i++)
+					{
+						int value = int.Parse(Console.ReadLine());
+						Box<int> box = new Box<int>(value);
 
-				Console.WriteLine(box.ToString());
+						Console.WriteLine(box.ToString());
+					}
+				}
+				else
+				{
+					Console.WriteLine("Integer number expected.");
+				}
 			}
 		}
 	}
