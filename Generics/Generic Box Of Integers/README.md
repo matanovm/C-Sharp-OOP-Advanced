@@ -4,10 +4,10 @@ Create a generic class Box that can be initialized with any type and store the v
 <h2>Examples</h2>
 
 * Input
-      2
-      life in a box
-      box in a life
+        2
+        life in a box
+        box in a life
 
 * Output
-      System.String: life in a box
-      System.String: box in a life
+        System.String: life in a box
+        System.String: box in a life
