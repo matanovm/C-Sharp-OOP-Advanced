@@ -1,12 +1,12 @@
 ﻿namespace Generic_Box_Of_Integers
 {
-	class Box<T>
+	public class Box<T>
 	{
 		private T value;
 
-		public Box(T value)
+		public Box(T _value)
 		{
-			this.value = value;
+			value = _value;
 		}
 
 		public override string ToString()
