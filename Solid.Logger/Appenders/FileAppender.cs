@@ -9,7 +9,7 @@ namespace Solid.Logger.Appernders
 {
 	public class FileAppender : Appender
 	{
-		private const string path = @"D:\GitHub_Repository\C_Sharp_OOP_Advanced\Solid\log.txt";
+		private const string Path = @"D:\GitHub_Repository\C_Sharp_OOP_Advanced\Solid\log.txt";
 
 		private readonly ILogFile logFile;
 
@@ -27,7 +27,7 @@ namespace Solid.Logger.Appernders
 				string content = string.Format(this.Layout.Format, dateTime, reportLevel, message)+
 					"\n";
 				this.logFile.Write(content);
-				File.AppendAllText(path, content);
+				File.AppendAllText(Path, content);
 			}
 		}
 

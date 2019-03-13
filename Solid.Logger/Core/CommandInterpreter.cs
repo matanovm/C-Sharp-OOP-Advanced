@@ -14,15 +14,15 @@ namespace Solid.Logger.Core
 {
 	public class CommandInterpreter : ICommandInterpreter
 	{
-		private ICollection<IAppender> appenders;
-		private IAppenderFactory appenderFactory;
-		private ILayoutFactory layoutFactory;
+		private readonly ICollection<IAppender> _appenders;
+		private IAppenderFactory _appenderFactory;
+		private ILayoutFactory _layoutFactory;
 
 		public CommandInterpreter()
 		{
-			this.appenders = new List<IAppender>();
-			this.appenderFactory = new AppenderFactory();
-			this.layoutFactory = new LayoutFactory();
+			_appenders = new List<IAppender>();
+			_appenderFactory = new AppenderFactory();
+			_layoutFactory = new LayoutFactory();
 		}
 
 		public void AddAppender(string[] args)
@@ -36,10 +36,10 @@ namespace Solid.Logger.Core
 				reportLevel = Enum.Parse<ReportLevel>(args[2]);
 			}
 
-			ILayout layout = this.layoutFactory.CreateLayout(layoutType);
-			IAppender appender = this.appenderFactory.CreateAppender(appenderType, layout);
+			ILayout layout = _layoutFactory.CreateLayout(layoutType);
+			IAppender appender = _appenderFactory.CreateAppender(appenderType, layout);
 			appender.ReportLevel = reportLevel;
-			this.appenders.Add(appender);
+			_appenders.Add(appender);
 
 		}
 
@@ -49,7 +49,7 @@ namespace Solid.Logger.Core
 			string dateTime = args[1];
 			string message = args[2];
 
-			foreach (IAppender appender in appenders)
+			foreach (IAppender appender in _appenders)
 			{
 				appender.Append(dateTime, reportLevel, message);
 			}
@@ -59,7 +59,7 @@ namespace Solid.Logger.Core
 		{
 			Console.WriteLine("Logger Info");
 
-			foreach (IAppender appender in appenders)
+			foreach (IAppender appender in _appenders)
 			{
 				Console.WriteLine(appender);
 			}

@@ -6,14 +6,14 @@ namespace Solid.Logger.Appenders
 {
 	public abstract class Appender : IAppender
 	{
-		private readonly ILayout layout;
+		private readonly ILayout _layout;
 
 		protected Appender(ILayout layout)
 		{
-			this.layout = layout;
+			_layout = layout;
 		}
 
-		protected ILayout Layout => this.layout;
+		protected ILayout Layout => _layout;
 
 		public ReportLevel ReportLevel { get; set; }
 
